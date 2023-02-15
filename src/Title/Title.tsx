@@ -1,11 +1,9 @@
 import React from "react";
-
-export default class App extends React.Component {
-  render(): React.ReactNode {
-    return (
-      <div>
-        <h1>Title</h1>
-      </div>
-    );
-  }
+import styles from "./Title.module.css";
+export default function Title() {
+  return (
+    <div>
+      <h1 className={styles.title}>Title</h1>
+    </div>
+  );
 }
