@@ -1,11 +1,22 @@
-import React from "react";
+import { Fact } from "../types";
+import cx from "classnames";
+import GridItem from "./GridItem";
 
-export default class App extends React.Component {
-  render(): React.ReactNode {
-    return (
-      <div>
-        <h1>Grid</h1>
-      </div>
-    );
-  }
+import styles from "./Grid.module.css";
+import mediaStyles from "./Media.module.css";
+export default function Grid(props: {
+  facts: Fact[];
+  updateClicked: (id: number) => void;
+}) {
+  return (
+    <section className={cx(styles.grid, mediaStyles.grid)}>
+      {props.facts.map((fact) => (
+        <GridItem
+          updateClicked={props.updateClicked}
+          key={fact.id}
+          fact={fact}
+        ></GridItem>
+      ))}
+    </section>
+  );
 }
